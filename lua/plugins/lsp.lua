@@ -22,6 +22,24 @@ return {
       servers = {
         html = {},
         emmet_language_server = {},
+        -- pyright = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         typeCheckingMode = "off", -- or "strict" if you prefer
+        --         autoSearchPaths = true,
+        --         useLibraryCodeForTypes = true,
+        --       },
+        --     },
+        --   },
+        -- },
+        ruff_lsp = {
+          settings = {
+            format = {
+              enabled = false, -- Disable Ruff formatting
+            },
+          },
+        },
         vtsls = {
           settings = {
             complete_function_calls = true,
