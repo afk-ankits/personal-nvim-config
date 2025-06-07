@@ -41,6 +41,15 @@ return {
           },
         },
         vtsls = {
+          root_dir = function()
+            return not vim.fs.root(0, { "deno.json", "deno.jsonc" })
+              and vim.fs.root(0, {
+                "tsconfig.json",
+                "jsconfig.json",
+                "package.json",
+                ".git",
+              })
+          end,
           settings = {
             complete_function_calls = true,
             vtsls = {
