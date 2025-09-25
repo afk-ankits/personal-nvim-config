@@ -6,7 +6,12 @@ return {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
     priority = 1000,
-    opts = { transparent = false },
+    opts = {
+      transparent = false,
+      -- styles = {
+      --   sidebars = "transparent", -- optional: applies to sidebars like Neo-tree
+      -- },
+    },
   },
   {
     "ellisonleao/gruvbox.nvim",

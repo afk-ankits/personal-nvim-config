@@ -1,7 +1,7 @@
 return {
   {
     {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       opts = function(_, opts)
         vim.list_extend(opts.ensure_installed, {
           "stylua",
@@ -41,15 +41,15 @@ return {
           },
         },
         vtsls = {
-          root_dir = function()
-            return not vim.fs.root(0, { "deno.json", "deno.jsonc" })
-              and vim.fs.root(0, {
-                "tsconfig.json",
-                "jsconfig.json",
-                "package.json",
-                ".git",
-              })
-          end,
+          -- root_dir = function()
+          --   return not vim.fs.root(0, { "deno.json", "deno.jsonc" })
+          --     and vim.fs.root(0, {
+          --       "tsconfig.json",
+          --       "jsconfig.json",
+          --       "package.json",
+          --       ".git",
+          --     })
+          -- end,
           settings = {
             complete_function_calls = true,
             vtsls = {
@@ -73,6 +73,22 @@ return {
                 parameterTypes = { enabled = false },
                 propertyDeclarationTypes = { enabled = false },
                 variableTypes = { enabled = false },
+              },
+            },
+          },
+        },
+
+        gopls = {
+          settings = {
+            gopls = {
+              hints = {
+                assignVariableTypes = false,
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = false,
+                parameterNames = false,
+                rangeVariableTypes = false,
               },
             },
           },

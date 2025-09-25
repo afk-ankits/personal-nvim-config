@@ -39,6 +39,16 @@ keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
+keymap.set("n", "<leader><space>", function()
+  require("telescope.builtin").find_files({ cwd = vim.fn.getcwd() })
+end, opts)
+
+-- -- Open file in vscode
+keymap.set("n", "<leader>vo", function()
+  local filepath = vim.fn.expand("%:p") -- full path
+  local line = vim.fn.line(".") -- current line
+  vim.fn.system({ "code", "-g", filepath .. ":" .. line }) -- open in VS Code
+end, { noremap = true, silent = true })
 
 -- local scrollKeymap = {
 --   -- Use the "sine" easing function
