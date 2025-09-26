@@ -1,6 +1,14 @@
 return {
   {
     "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent_background = true,
+      float = {
+        transparent = true, -- enable transparent floating windows
+      },
+    },
   },
   {
     "craftzdog/solarized-osaka.nvim",
